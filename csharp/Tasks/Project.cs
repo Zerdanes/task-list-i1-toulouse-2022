@@ -18,7 +18,10 @@ namespace Tasks
         {
             foreach (var task in _tasks)
             {
-                console.WriteLine($"    [{(task.Done ? 'x' : ' ')}] {task.Identifier}: {task.Description}");
+                var taskDone = task.Done;
+                var taskIdentifier = task.Identifier;
+                var taskDescription = task.Description;
+                console.WriteLine($"    [{(taskDone ? 'x' : ' ')}] {taskIdentifier}: {taskDescription}");
             }
         }
 

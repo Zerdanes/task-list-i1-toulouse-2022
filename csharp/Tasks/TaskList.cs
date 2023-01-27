@@ -44,26 +44,34 @@ namespace Tasks
 		{
 			var commandRest = commandLine.Split(" ".ToCharArray(), 2);
 			var command = commandRest[0];
-			switch (command) {
-			case "show":
-				Show();
-				return;
-			case "add":
-				Add(commandRest[1]);
-				return;
-			case "check":
-				Check(commandRest[1]);
-				return;
-			case "uncheck":
-				Uncheck(commandRest[1]);
-				return;
-			case "help":
-				Help();
-				return;
-			}
-
+			if (CommandCase(commandRest)){ return; }
             Error(command);
         }
+
+		private bool CommandCase(string[] commandRest)
+		{
+			var command = commandRest[0];
+            switch (command)
+            {
+                case "show":
+                    Show();
+					break;
+                case "add":
+                    Add(commandRest[1]);
+                    break;
+                case "check":
+                    Check(commandRest[1]);
+					break;
+                case "uncheck":
+                    Uncheck(commandRest[1]);
+					break;
+                case "help":
+                    Help();
+					break;
+            }
+
+            return true;
+		}
 
         private void Show() => _projects.PrintInto(_console);
 

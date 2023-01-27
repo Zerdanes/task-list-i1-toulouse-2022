@@ -16,8 +16,11 @@ namespace Tasks
         {
             foreach (var project in _projects)
             {
-                console.WriteLine(project.Key);
-                project.Value.PrintInto(console);
+                var projectKey = project.Key;
+                var projectValue = project.Value;
+
+                console.WriteLine(projectKey);
+                projectValue.PrintInto(console);
                 console.WriteLine();
             }
         }

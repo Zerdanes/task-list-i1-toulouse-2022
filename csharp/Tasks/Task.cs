@@ -5,10 +5,17 @@ namespace Tasks
 {
 	public class Task
 	{
-		public long Identifier { get; set; }
+        public long Identifier = 0;
 
-		public string Description { get; set; }
+        public string Description = "";
 
-		public bool Done { get; set; }
+		public bool Done = false;
+	
+		public Task() { }
+
+		public override string ToString()
+			=> string.Join(string.Empty, Identifier) + " "
+			+ string.Join(string.Empty, Description);
+	
 	}
 }
