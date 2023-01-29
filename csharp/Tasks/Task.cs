@@ -5,11 +5,11 @@ namespace Tasks
 {
 	public class Task
 	{
-        public long Identifier = 0;
+        public Identifier Identifier = 0;
 
-        public string Description = "";
+        public Description Description = "";
 
-		public bool Done = false;
+		public Done Done = false;
 	
 		public Task() { }
 
@@ -18,4 +18,28 @@ namespace Tasks
 			+ string.Join(string.Empty, Description);
 	
 	}
+
+    public class Done
+    {
+        public static implicit operator Done(bool done)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public class Description
+    {
+        public static implicit operator Description(string description)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public class Identifier
+    {
+        public static implicit operator Identifier(int identifier)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

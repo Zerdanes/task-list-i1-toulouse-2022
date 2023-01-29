@@ -9,9 +9,9 @@ namespace Tasks
 		private readonly Projects _projects = new ();
 		private readonly IConsole _console;
 
-		private long _lastIdentifier;
+		private long _lastIdentifier = 0;
 
-		public static void Main()
+		public static void Main(string[] args)
 		{
 			new TaskList(new RealConsole()).Run(CancellationToken.None);
 		}
@@ -96,7 +96,7 @@ namespace Tasks
 		private void AddTask(string project, string description)
         {
             _projects.AddTaskToProject(project,
-                new Task { Identifier = NextId(), Description = description, Done = false },
+                new Task { Identifier = (Identifier)NextId(), Description = description, Done = false },
 				_console
             );
         }
